@@ -10,6 +10,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 app.use(cors());
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+  res.status(200).send("ok");
+});
+
 // Crear intención de pago
 app.post("/create-payment-intent", async (req, res) => {
   try {
