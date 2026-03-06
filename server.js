@@ -118,7 +118,7 @@ app.post("/create-payment-intent", async (req, res) => {
     }
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: Math.round(Number(amount) * 100),
+      amount: Math.round(Number(amount),
       currency: "usd",
       description: descripcion || "Publicidad ViveUSA Magazine",
       receipt_email: email || undefined,
